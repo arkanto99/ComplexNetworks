@@ -9,6 +9,7 @@ Resultado del algoritmo de Fruchterman-Reingold (algoritmo de fuerzas dirigidas 
 implementado en NetworkX sobre el grafo de Les Miserables
 Página 296-297
 """
+
 import networkx as nx
 #import matplotlib.pyplot as plt #Solo es necesaria importarla si queremos guardar la imagen resultado
 

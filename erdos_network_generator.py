@@ -8,7 +8,7 @@ Created on Mon Mar  2 23:04:06 2020
 Generación de una red de Erdös-Renyi (página 300)
 Este tipo de redes surgen cuando, al tener un gran conjunto de nodos y aristas muy grande, enlazamos 2 nodos de manera aleatoria
 
-Este tipo de redes no son realistas, ya que suponen que la conectividad entre los diferrentes nodos siguen una distribucion de Poisson!
+Este tipo de redes no son realistas, ya que suponen que la conectividad entre los diferentes nodos siguen una distribucion de Poisson!
 """
 
 import networkx as nx
@@ -19,7 +19,7 @@ def grados_erdos_renyi(n,m): # n-> Cantidad de nodos ; m->Cantidad de aristas
     
     g=nx.Graph(); #Creamos un grafo vacio
     for i in range (n): #for(i=0;i<n;i++)
-        u=g.add_node(i)
+        g.add_node(i)
     #Algoritmo de generacion de la red###
     for i in range(m):
         a=np.random.randint(n)#Generamos un entero aleatorio del intervali [0,n) , Intervalo Abierto!
