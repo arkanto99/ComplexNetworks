@@ -47,7 +47,7 @@ def watts_strogatz_graph(n,k,alpha,draw=True):
             for v in g.nodes():
                 degrees.append(g.degree(v))
             plt.figure()
-            plt.hist(grades)
+            plt.hist(degrees)
             plt.title('Nodal degree distribuction in a Watts-Strogatz graph with '+str(n)+' nodes')
             plt.xlabel('Nodal degree')
             plt.ylabel('Number of nodes')
@@ -56,17 +56,17 @@ def watts_strogatz_graph(n,k,alpha,draw=True):
     else:
         print('Error: Chose k<n')
 
-def friendship_probability(g): #NO FUNCIONAAA
+def friendship_probability(g): 
     global comunes
     commons={} #Declaramos un diccionario vacio
     probability={}
     
     degrees=[]
     for v in g.nodes():
-                degrees.append(g.degree(v))
+        degrees.append(g.degree(v))
     
     for i in range(np.mean(degrees).astype(int)):
-        #commons[i]=list([0,0]) #Inicializamos en elemento i-esimo
+        commons[i]=list([0,0]) #Inicializamos en elemento i-esimo
     visited_couples=[]
 
     for v in g.nodes:
@@ -79,24 +79,26 @@ def friendship_probability(g): #NO FUNCIONAAA
                     commons[common_friends][0]+=1
                 else:
                     commons[common_friends][1]+=1
-    
+    probabilityPlot=[]
     for i in commons.keys():
         if commons[i][0]+commons[i][1]!=0:
             probability[i]=float(commons[i][0])/(commons[i][0]+commons[i][1])
+            probabilityPlot.append(probability[i])
         else:
             probability[i]=1
-    
-    plt.plot(probability.values())
+            probabilityPlot.append(probability[i])
+            
+    plt.figure()
+    plt.plot(probabilityPlot)
     plt.ylabel("Friendship probability")
     plt.xlabel("Number of common friends")
-    plt.title("Friendship probability vs Common friends \n") 
+    plt.title("Friendship probability vs Common friends") 
     
     return commons,probability
 
 graph=watts_strogatz_graph(1000,5,0.1)
 friendship_probability(graph)
-      
-        
+
         
         
         
