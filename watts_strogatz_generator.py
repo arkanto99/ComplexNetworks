@@ -54,7 +54,7 @@ def watts_strogatz_graph(n,k,alpha,draw=True):
         
         return g
     else:
-        print('Error: Chose k<n')
+        print('Error: Choose k<n')
 
 def friendship_probability(g): 
     global comunes
